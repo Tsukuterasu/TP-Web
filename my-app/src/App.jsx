@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { GoNumber } from "react-icons/go";
+import { FaCalculator } from "react-icons/fa";
+import { PiMathOperationsLight } from "react-icons/pi";
 import './App.css'
 
 function App() {
@@ -9,10 +10,10 @@ function App() {
   return (
     <>
       <div>
-        <h1>Calculator</h1>
+        <h1> <FaCalculator/> Calculator</h1>
         <form>
           <div>
-          <label for="select">Type of operation</label>
+          <label for="select"> <PiMathOperationsLight/> Operation type </label>
           <select name="option">
             <option value="addition">+ (addition)</option>
             <option value="soustraction">- (soustraction)</option>
@@ -22,12 +23,12 @@ function App() {
         </div>
 
         <div>
-          <p>Field 1 :</p>
+          <p><GoNumber/> Field 1 :</p>
           <input>
           </input>
         </div>
         <div>
-          <p>Field 2 :</p>
+          <p><GoNumber/> Field 2 :</p>
           <input>
 
           </input>
