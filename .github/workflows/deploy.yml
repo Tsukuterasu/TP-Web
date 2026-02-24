@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,22 +17,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
         with:
           version: 8
 
-      # Install package dependencies
       - name: Install dependencies
         run: pnpm install
+        working-directory: my-app
 
-      # Build package
       - name: Build package
         run: pnpm build
+        working-directory: my-app
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # Vite
+          publish_dir: my-app/dist
