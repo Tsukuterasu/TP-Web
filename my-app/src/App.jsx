@@ -5,7 +5,6 @@ import { PiMathOperationsLight } from "react-icons/pi";
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
